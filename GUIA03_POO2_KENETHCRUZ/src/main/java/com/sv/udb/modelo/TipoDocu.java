@@ -26,26 +26,26 @@ import javax.xml.bind.annotation.XmlRootElement;
  * @author Orlando Vasquez
  */
 @Entity
-@Table(name = "luga_acce", catalog = "rceron_poo", schema = "")
+@Table(name = "tipo_docu", catalog = "rceron_poo", schema = "")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "LugaAcce.findAll", query = "SELECT l FROM LugaAcce l"),
-    @NamedQuery(name = "LugaAcce.findByCodiLugaAcce", query = "SELECT l FROM LugaAcce l WHERE l.codiLugaAcce = :codiLugaAcce"),
-    @NamedQuery(name = "LugaAcce.findByNombLugaAcce", query = "SELECT l FROM LugaAcce l WHERE l.nombLugaAcce = :nombLugaAcce"),
-    @NamedQuery(name = "LugaAcce.findByFechAlta", query = "SELECT l FROM LugaAcce l WHERE l.fechAlta = :fechAlta"),
-    @NamedQuery(name = "LugaAcce.findByFechBaja", query = "SELECT l FROM LugaAcce l WHERE l.fechBaja = :fechBaja"),
-    @NamedQuery(name = "LugaAcce.findByEsta", query = "SELECT l FROM LugaAcce l WHERE l.esta = :esta")})
-public class LugaAcce implements Serializable {
+    @NamedQuery(name = "TipoDocu.findAll", query = "SELECT t FROM TipoDocu t"),
+    @NamedQuery(name = "TipoDocu.findByCodiTipoDocu", query = "SELECT t FROM TipoDocu t WHERE t.codiTipoDocu = :codiTipoDocu"),
+    @NamedQuery(name = "TipoDocu.findByNombTipoDocu", query = "SELECT t FROM TipoDocu t WHERE t.nombTipoDocu = :nombTipoDocu"),
+    @NamedQuery(name = "TipoDocu.findByFechAlta", query = "SELECT t FROM TipoDocu t WHERE t.fechAlta = :fechAlta"),
+    @NamedQuery(name = "TipoDocu.findByFechBaja", query = "SELECT t FROM TipoDocu t WHERE t.fechBaja = :fechBaja"),
+    @NamedQuery(name = "TipoDocu.findByEsta", query = "SELECT t FROM TipoDocu t WHERE t.esta = :esta")})
+public class TipoDocu implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
-    @Column(name = "codi_luga_acce")
-    private Long codiLugaAcce;
-    @Size(max = 100)
-    @Column(name = "nomb_luga_acce")
-    private String nombLugaAcce;
+    @Column(name = "codi_tipo_docu")
+    private Long codiTipoDocu;
+    @Size(max = 50)
+    @Column(name = "nomb_tipo_docu")
+    private String nombTipoDocu;
     @Column(name = "fech_alta")
     @Temporal(TemporalType.TIMESTAMP)
     private Date fechAlta;
@@ -55,27 +55,27 @@ public class LugaAcce implements Serializable {
     @Column(name = "esta")
     private Integer esta;
 
-    public LugaAcce() {
+    public TipoDocu() {
     }
 
-    public LugaAcce(Long codiLugaAcce) {
-        this.codiLugaAcce = codiLugaAcce;
+    public TipoDocu(Long codiTipoDocu) {
+        this.codiTipoDocu = codiTipoDocu;
     }
 
-    public Long getCodiLugaAcce() {
-        return codiLugaAcce;
+    public Long getCodiTipoDocu() {
+        return codiTipoDocu;
     }
 
-    public void setCodiLugaAcce(Long codiLugaAcce) {
-        this.codiLugaAcce = codiLugaAcce;
+    public void setCodiTipoDocu(Long codiTipoDocu) {
+        this.codiTipoDocu = codiTipoDocu;
     }
 
-    public String getNombLugaAcce() {
-        return nombLugaAcce;
+    public String getNombTipoDocu() {
+        return nombTipoDocu;
     }
 
-    public void setNombLugaAcce(String nombLugaAcce) {
-        this.nombLugaAcce = nombLugaAcce;
+    public void setNombTipoDocu(String nombTipoDocu) {
+        this.nombTipoDocu = nombTipoDocu;
     }
 
     public Date getFechAlta() {
@@ -105,18 +105,18 @@ public class LugaAcce implements Serializable {
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (codiLugaAcce != null ? codiLugaAcce.hashCode() : 0);
+        hash += (codiTipoDocu != null ? codiTipoDocu.hashCode() : 0);
         return hash;
     }
 
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof LugaAcce)) {
+        if (!(object instanceof TipoDocu)) {
             return false;
         }
-        LugaAcce other = (LugaAcce) object;
-        if ((this.codiLugaAcce == null && other.codiLugaAcce != null) || (this.codiLugaAcce != null && !this.codiLugaAcce.equals(other.codiLugaAcce))) {
+        TipoDocu other = (TipoDocu) object;
+        if ((this.codiTipoDocu == null && other.codiTipoDocu != null) || (this.codiTipoDocu != null && !this.codiTipoDocu.equals(other.codiTipoDocu))) {
             return false;
         }
         return true;
@@ -124,7 +124,7 @@ public class LugaAcce implements Serializable {
 
     @Override
     public String toString() {
-        return "com.sv.udb.modelo.LugaAcce[ codiLugaAcce=" + codiLugaAcce + " ]";
+        return "com.sv.udb.modelo.TipoDocu[ codiTipoDocu=" + codiTipoDocu + " ]";
     }
     
 }

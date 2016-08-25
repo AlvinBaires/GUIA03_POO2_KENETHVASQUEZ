@@ -38,20 +38,56 @@ public class LugaAcceServ extends HttpServlet {
         if(esValido)
         {
             String mens = "";
-            String CRUD = request.getParameter("lugaAcceBton");
+            String CRUD = request.getParameter("cursBton");
             if(CRUD.equals("Guardar"))
             {
                 LugaAcce obje = new LugaAcce();
-                obje.setNombLugaAcce(request.getParameter("nomb"));
+                obje.setNombLugaAcce(request.getParameter("nombLugaAcce"));
                 obje.setFechAlta(new Date());
                 obje.setEsta(1);
-                mens = new LugaAcceCtrl().guar(obje) ? "Datos guardados exitosamente" : "Datos NO guardados";
-                request.getRequestDispatcher("/index.html").forward(request, response);
+                mens = new LugaAcceCtrl().guar(obje) ? "Datos guardados" : "Datos no guardados";
+                
             }
+            else if(CRUD.equals("Consultar"))
+            {
+                long CodiLuga = Long.parseLong(request.getParameter("codiLugaAcce") == null ? 
+                        "0" : request.getParameter("codiLugaAcce"));
+                LugaAcce objeEqui = new LugaAcceCtrl().get(CodiLuga);
+                if(objeEqui != null)
+                {
+                    request.setAttribute("codiLugaAcce", objeEqui.getCodiLugaAcce());
+                    request.setAttribute("nombLugaAcce", objeEqui.getNombLugaAcce());
+                    
+                }
+            }
+//            else if(CRUD.equals("Degradar")){
+//                LugaAcce obje = new LugaAcce();
+//                obje.setNombLugaAcce(request.getParameter("nombLugaAcce"));
+//                obje.setEsta(1);
+//                obje.setCodiLugaAcce(Long.parseLong(request.getParameter("codiLugaAcce")));
+//                ///obje.setFechBaja(new Date());
+//                mens = new LugaAcceCtrl().modificar(obje) ? "Usuario degradado" : "Hubo un problema";
+//            }
+            
+            else if(CRUD.equals("Modificar")){
+                LugaAcce obje = new LugaAcce();
+                obje.setNombLugaAcce(request.getParameter("nombLugaAcce"));
+                obje.setEsta(1);
+                obje.setCodiLugaAcce(Long.parseLong(request.getParameter("codiLugaAcce")));
+                mens = new LugaAcceCtrl().modificar(obje) ? "Datos modificados" : "Datos no modificados";
+            }
+            
+            else if(CRUD.equals("Eliminar")){
+                long CodiLuga = Long.parseLong(request.getParameter("codiLugaAcce"));
+                mens = new LugaAcceCtrl().eliminar(CodiLuga) ? "Datos Eliminados" : "Datos no eliminados"; 
+            }
+            
+            request.setAttribute("mensAler", mens);
+            request.getRequestDispatcher("/Lugar.jsp").forward(request, response);
         }
         else
         {
-            response.sendRedirect(request.getContextPath() + "/index.html");
+            response.sendRedirect(request.getContextPath() + "/Lugar.jsp");
         }
     }
 
