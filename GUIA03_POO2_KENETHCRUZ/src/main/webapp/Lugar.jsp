@@ -140,7 +140,7 @@
                                 <display:column property="fechAlta" title="Fecha Alta" sortable="true"/>
                                 <display:column  property="fechBaja" title="Fecha baja" sortable="true"/>
                                 <display:column  title="Dar de baja" sortable="true">
-                                    <input type="submit" class="waves-effect waves-light btn"  name="cursBton" value="Degradar"/>
+                                    <input type="submit" class="waves-effect waves-light btn red"  name="cursBton" value="Degradar"/>
                                     </display:column>
                                 <display:column title="Selecione" sortable="true">
                                     <input type="radio" name="codiLugaAcce" id="${Lugar.codiLugaAcce}" value="${Lugar.codiLugaAcce}"/><label for="${Lugar.codiLugaAcce}"></label>

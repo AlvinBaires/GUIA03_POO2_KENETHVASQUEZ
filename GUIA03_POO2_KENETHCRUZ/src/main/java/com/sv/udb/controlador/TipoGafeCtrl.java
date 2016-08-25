@@ -5,8 +5,7 @@
  */
 package com.sv.udb.controlador;
 
-
-import com.sv.udb.modelo.TipoDocu;
+import com.sv.udb.modelo.TipoGafe;
 import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.EntityManager;
@@ -19,9 +18,8 @@ import javax.persistence.TypedQuery;
  *
  * @author Orlando Vasquez
  */
-public class TipoDocuCtrl {
-    
-    public boolean guar(TipoDocu obje)
+public class TipoGafeCtrl {
+    public boolean guar(TipoGafe obje)
     {
         boolean resp = false;
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("POOPU");
@@ -43,7 +41,7 @@ public class TipoDocuCtrl {
         return resp;
     }
     
-    public boolean modificar(TipoDocu obje)
+    public boolean modificar(TipoGafe obje)
     {
         boolean resp = false;
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("POOPU");
@@ -72,9 +70,9 @@ public class TipoDocuCtrl {
         EntityManager em = emf.createEntityManager();
         EntityTransaction tx = em.getTransaction();
         tx.begin();
-        TipoDocu respo = null;
+        TipoGafe respo = null;
         try{
-            respo = em.find( TipoDocu.class, empId);
+            respo = em.find( TipoGafe.class, empId);
             if(respo != null)
             {
                 em.remove(respo);
@@ -90,14 +88,14 @@ public class TipoDocuCtrl {
     }
     
     
-    public List<TipoDocu>  ConsTodo()
+    public List<TipoGafe>  ConsTodo()
     {
-        List<TipoDocu> resp = new ArrayList<>();
+        List<TipoGafe> resp = new ArrayList<>();
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("POOPU");
         EntityManager em = emf.createEntityManager();
         try
         {
-          TypedQuery<TipoDocu> query =em.createNamedQuery("TipoDocu.findAll", TipoDocu.class);
+          TypedQuery<TipoGafe> query =em.createNamedQuery("TipoGafe.findAll", TipoGafe.class);
            resp = query.getResultList();
         }
         catch(Exception ex)
@@ -109,18 +107,21 @@ public class TipoDocuCtrl {
     }
     
     
-public TipoDocu get(Long empId){
+public TipoGafe get(Long empId){
         
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("POOPU");
         EntityManager em = emf.createEntityManager();
-        TipoDocu resp = null;
+        TipoGafe resp = null;
         
         try{
-            resp = em.find(TipoDocu.class, empId);
+            resp = em.find( TipoGafe.class, empId);
             
         }catch(Exception e){
             e.printStackTrace();
         }                
         return resp;
     }
+
+
+    
 }

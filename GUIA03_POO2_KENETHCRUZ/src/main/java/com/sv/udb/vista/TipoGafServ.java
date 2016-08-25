@@ -5,8 +5,8 @@
  */
 package com.sv.udb.vista;
 
-import com.sv.udb.controlador.LugaAcceCtrl;
-import com.sv.udb.modelo.LugaAcce;
+import com.sv.udb.controlador.TipoGafeCtrl;
+import com.sv.udb.modelo.TipoGafe;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Date;
@@ -18,10 +18,10 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author REGISTRO
+ * @author Orlando Vasquez
  */
-@WebServlet(name = "LugaAcceServ", urlPatterns = {"/LugaAcceServ"})
-public class LugaAcceServ extends HttpServlet {
+@WebServlet(name = "TipoGafServ", urlPatterns = {"/TipoGafServ"})
+public class TipoGafServ extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -41,22 +41,22 @@ public class LugaAcceServ extends HttpServlet {
             String CRUD = request.getParameter("cursBton");
             if(CRUD.equals("Guardar"))
             {
-                LugaAcce obje = new LugaAcce();
-                obje.setNombLugaAcce(request.getParameter("nombLugaAcce"));
+                TipoGafe obje = new TipoGafe();
+                obje.setNombTipoGafe(request.getParameter("nombTipoGafe"));
                 obje.setFechAlta(new Date());
                 obje.setEsta(1);
-                mens = new LugaAcceCtrl().guar(obje) ? "Datos guardados" : "Datos no guardados";
+                mens = new  TipoGafeCtrl().guar(obje) ? "Datos guardados" : "Datos no guardados";
                 
             }
             else if(CRUD.equals("Consultar"))
             {
-                long CodiLuga = Long.parseLong(request.getParameter("codiLugaAcce") == null ? 
-                        "0" : request.getParameter("codiLugaAcce"));
-                LugaAcce objeEqui = new LugaAcceCtrl().get(CodiLuga);
+                long CodiTipoG = Long.parseLong(request.getParameter("codiTipoGafe") == null ? 
+                        "0" : request.getParameter("codiTipoGafe"));
+                TipoGafe objeEqui = new TipoGafeCtrl().get(CodiTipoG);
                 if(objeEqui != null)
                 {
-                    request.setAttribute("codiLugaAcce", objeEqui.getCodiLugaAcce());
-                    request.setAttribute("nombLugaAcce", objeEqui.getNombLugaAcce());
+                    request.setAttribute("codiTipoGafe", objeEqui.getCodiTipoGafe());
+                    request.setAttribute("nombTipoGafe", objeEqui.getNombTipoGafe());
                     
                 }
             }
@@ -71,28 +71,29 @@ public class LugaAcceServ extends HttpServlet {
 //            }
             
             else if(CRUD.equals("Modificar")){
-                LugaAcce obje = new LugaAcce();
-                obje.setNombLugaAcce(request.getParameter("nombLugaAcce"));
+                 TipoGafe obje = new TipoGafe();
+                obje.setNombTipoGafe(request.getParameter("nombTipoGafe"));
                 obje.setFechAlta(new Date());
                 //obje.setFechBaja(new Date());
                 obje.setEsta(1);
-                obje.setCodiLugaAcce(Long.parseLong(request.getParameter("codiLugaAcce")));
-                mens = new LugaAcceCtrl().modificar(obje) ? "Datos modificados" : "Datos no modificados";
+                obje.setCodiTipoGafe(Long.parseLong(request.getParameter("codiTipoGafe")));
+                mens = new TipoGafeCtrl().modificar(obje) ? "Datos modificados" : "Datos no modificados";
             }
             
             else if(CRUD.equals("Eliminar")){
-                long CodiLuga = Long.parseLong(request.getParameter("codiLugaAcce"));
-                mens = new LugaAcceCtrl().eliminar(CodiLuga) ? "Datos Eliminados" : "Datos no eliminados"; 
+                long CodiTipoG = Long.parseLong(request.getParameter("codiTipoGafe"));
+                mens = new TipoGafeCtrl().eliminar(CodiTipoG) ? "Datos Eliminados" : "Datos no eliminados"; 
             }
             
             request.setAttribute("mensAler", mens);
-            request.getRequestDispatcher("/Lugar.jsp").forward(request, response);
+            request.getRequestDispatcher("/TipoGaf.jsp").forward(request, response);
         }
-        else
-        {
-            response.sendRedirect(request.getContextPath() + "/Lugar.jsp");
+        else {
+            response.sendRedirect(request.getContextPath() + "/TipoGaf.jsp");
         }
-    }
+
+}
+
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
