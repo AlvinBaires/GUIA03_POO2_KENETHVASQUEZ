@@ -16,9 +16,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
+/** Servelet para TipoGafeServ
  *
- * @author Orlando Vasquez
+ * @author KENETH CRUZ
+ * @version 28/08/2016
  */
 @WebServlet(name = "TipoGafServ", urlPatterns = {"/TipoGafServ"})
 public class TipoGafServ extends HttpServlet {
@@ -56,22 +57,22 @@ public class TipoGafServ extends HttpServlet {
                 if(objeEqui != null)
                 {
                     request.setAttribute("codiTipoGafe", objeEqui.getCodiTipoGafe());
-                    request.setAttribute("nombTipoGafe", objeEqui.getNombTipoGafe());
+                    request.setAttribute("nombTipoGafe", objeEqui.getNombTipoGafe());                    
                     
                 }
             }
-//            else if(CRUD.equals("Degradar")){
-//                LugaAcce obje = new LugaAcce();
-//                obje.setNombLugaAcce(request.getParameter("nombLugaAcce"));
-//                obje.setFechAlta(new Date());
-//                obje.setFechBaja(new Date());
-//                obje.setEsta(1);
-//                obje.setCodiLugaAcce(Long.parseLong(request.getParameter("codiLugaAcce")));
-//                mens = new LugaAcceCtrl().modificar(obje) ? "Lugar degradado" : "Hubo un problema";
-//            }
+            else if(CRUD.equals("Degradar")){
+                TipoGafe obje = new TipoGafe();
+                obje.setNombTipoGafe(request.getParameter("nombTipoGafe"));
+                obje.setFechAlta(new Date());
+                obje.setFechBaja(new Date());
+                obje.setEsta(1);
+                obje.setCodiTipoGafe(Long.parseLong(request.getParameter("codiTipoGafe")));
+                mens = new TipoGafeCtrl().modificar(obje) ? "Lugar degradado" : "Hubo un problema";
+            }
             
             else if(CRUD.equals("Modificar")){
-                 TipoGafe obje = new TipoGafe();
+                TipoGafe obje = new TipoGafe();
                 obje.setNombTipoGafe(request.getParameter("nombTipoGafe"));
                 obje.setFechAlta(new Date());
                 //obje.setFechBaja(new Date());

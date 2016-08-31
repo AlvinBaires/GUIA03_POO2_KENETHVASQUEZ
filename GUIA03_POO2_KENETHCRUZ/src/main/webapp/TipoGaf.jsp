@@ -142,7 +142,11 @@
                                 <display:column property="fechAlta" title="Fecha alta" sortable="true"/>
                                 <display:column  property="fechBaja" title="Fecha baja" sortable="true"/>
                                 <display:column  title="Dar de baja" sortable="true">
-                                    <input type="submit" class="waves-effect waves-light btn red"  name="cursBton" value="Degradar"/>
+                                    <div class="row">
+                                        <div class="col s12 center-align">
+                                            <input type="submit" class="waves-effect waves-light btn red"  name="cursBton" value="Degradar"/>
+                                        </div>
+                                    </div>                                            
                                     </display:column>
                                 <display:column title="Selecione" sortable="true">
                                     <input type="radio" name="codiTipoGafe" id="${TipoGaf.codiTipoGafe}" value="${TipoGaf.codiTipoGafe}"/>
@@ -152,6 +156,25 @@
                         </div>
                         <br>
 
+                         <div class="container" style="margin-bottom: 128px;">
+            <div class="row">
+                
+                <div class="col s12">
+                    <div class="fixed-action-btn" style="bottom: 128px; right: 50px;">
+                        <a class="btn-floating btn-large red">
+                            <i class="large zmdi zmdi-toll"></i>
+                        </a>
+                        <ul>
+                            
+                            <li><a class="btn-floating red"><i class="zmdi zmdi-save" ></i></a></li>
+                            <li><a class="btn-floating yellow darken-1"><i class="zmdi zmdi-apple"></i></a></li>
+                            <li><a class="btn-floating green"><i class="zmdi zmdi-text-format"></i></a></li>
+                            <li><a class="btn-floating blue"><i class="zmdi zmdi-crop"></i></a></li>
+                        </ul>
+                    </div>   
+                </div>
+            </div>
+        </div>
                         <!--acciones-->
                         <div class="container" style="margin-bottom: 128px;">
                             <div class="row">

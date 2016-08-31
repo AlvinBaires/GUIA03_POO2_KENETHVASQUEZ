@@ -21,6 +21,13 @@ import javax.persistence.TypedQuery;
  */
 public class TipoDocuCtrl {
     
+     /** Metodo que funciona para guardar los datos en la base
+     * 
+     * @param obje objeto para TipoDocu
+     * @return boolean si guarda los datos
+     * @exception si no guarda los datos activa la exception
+     * @since 1.0
+     */
     public boolean guar(TipoDocu obje)
     {
         boolean resp = false;
@@ -43,6 +50,13 @@ public class TipoDocuCtrl {
         return resp;
     }
     
+     /** Metodo para modificar un registro TipoDocu de la base de datos
+      * 
+      * @param obje objeto para TipoDocu
+      * @return boolean si modifica los datos
+      * @exception  si no modifica los datos
+      * @since 1.0
+      */
     public boolean modificar(TipoDocu obje)
     {
         boolean resp = false;
@@ -65,6 +79,13 @@ public class TipoDocuCtrl {
         return resp;
     }
     
+    /** Metodo para eliminar un registro TipoDocu de la base de datos
+     * 
+     * @param obje objeto para TipoDocu
+     * @return boolean si elimina los datos
+     * @exception si no elimina los datos
+     * @since 1.0
+     */
     public boolean eliminar(Long empId)
     {
         boolean resp = false;
@@ -89,7 +110,12 @@ public class TipoDocuCtrl {
         return resp;
     }
     
-    
+    /** Metodo para consultar todos los datos de la base para TipoDocu
+    * 
+    * @return devuelve la lista TipoDocu
+    * @exception los datos no se pudieron consultar
+    * @since 1.0
+    */
     public List<TipoDocu>  ConsTodo()
     {
         List<TipoDocu> resp = new ArrayList<>();
@@ -108,8 +134,13 @@ public class TipoDocuCtrl {
        
     }
     
-    
-public TipoDocu get(Long empId){
+    /** Metodo para seleccionar un registro que se encuentra en la base
+     * 
+     * @param empId parametro de identificacion
+     * @return devuelve la informacion del TipoDocu seleccionada
+     * @exception error al consultar el dato seleccionado
+     */
+    public TipoDocu get(Long empId){
         
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("POOPU");
         EntityManager em = emf.createEntityManager();

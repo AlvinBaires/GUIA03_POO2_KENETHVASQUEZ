@@ -16,9 +16,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
+/** Servelet para TipoDocuServ
  *
- * @author Orlando Vasquez
+ * @author KENETH CRUZ
+ * @version 28/08/2016
+ * 
  */
 @WebServlet(name = "TipoDocServ", urlPatterns = {"/TipoDocServ"})
 public class TipoDocServ extends HttpServlet {

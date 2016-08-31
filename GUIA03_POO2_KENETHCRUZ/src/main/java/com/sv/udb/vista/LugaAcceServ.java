@@ -16,9 +16,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
+/** Serverlet para LugaAcceServ
  *
- * @author REGISTRO
+ * @author KENETH CRUZ
+ * @version 28/08/2016
  */
 @WebServlet(name = "LugaAcceServ", urlPatterns = {"/LugaAcceServ"})
 public class LugaAcceServ extends HttpServlet {

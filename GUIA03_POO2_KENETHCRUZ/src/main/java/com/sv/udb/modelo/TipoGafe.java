@@ -55,49 +55,97 @@ public class TipoGafe implements Serializable {
     @Column(name = "esta")
     private Integer esta;
 
+    /** constructor vacio
+     * 
+     */
     public TipoGafe() {
     }
 
+     /** constructor para codigo
+     * 
+     * @param codiTipoGafe codigo de codiTipoGafe
+     */
     public TipoGafe(Long codiTipoGafe) {
         this.codiTipoGafe = codiTipoGafe;
     }
 
+    /** constructor para obtener valor
+     * 
+     * @return un entero para CodiTipoGafe
+     */
     public Long getCodiTipoGafe() {
         return codiTipoGafe;
     }
 
+     /** constructor que devuelve el valor
+     * 
+     * @param codiTipoGafe devuelve un entero para codiTipoGafe 
+     */
     public void setCodiTipoGafe(Long codiTipoGafe) {
         this.codiTipoGafe = codiTipoGafe;
     }
 
+    /** constructor que obtiene el valor
+     * 
+     * @return un dato tipo String para NombTipoGafe
+     */
     public String getNombTipoGafe() {
         return nombTipoGafe;
     }
 
+    /** constructor que devuelve el valor
+     * 
+     * @param nombTipoGafe devuelve una cadena de texto para nombTipoGafe 
+     */
     public void setNombTipoGafe(String nombTipoGafe) {
         this.nombTipoGafe = nombTipoGafe;
     }
 
+    /** constructor que obtiene el valor
+     * 
+     * @return un dato tipo date para FechAlta 
+     */
     public Date getFechAlta() {
         return fechAlta;
     }
 
+    /** constructor que devuelve el valor
+     * 
+     * @param fechAlta devuelve la fecha para fechAlta 
+     */
     public void setFechAlta(Date fechAlta) {
         this.fechAlta = fechAlta;
     }
 
+    /** constructor que obtiene el valor
+     * 
+     * @return un dato tipo date para FechaBaja 
+     */
     public Date getFechBaja() {
         return fechBaja;
     }
 
+     /** constructor que devuelve el valor
+     * 
+     * 
+     * @param fechBaja  devuelve la fecha para fechBaja
+     */
     public void setFechBaja(Date fechBaja) {
         this.fechBaja = fechBaja;
     }
 
+    /** constructor que obtiene el valor
+     * 
+     * @return un dato tipo boolean para Esta 
+     */
     public Integer getEsta() {
         return esta;
     }
 
+    /** constructor que devuleve el valor
+     * 
+     * @param esta devuelve el estado para Esta
+     */
     public void setEsta(Integer esta) {
         this.esta = esta;
     }
